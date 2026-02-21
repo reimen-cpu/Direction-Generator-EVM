@@ -154,6 +154,13 @@ class EVMAddressGeneratorApp:
         y = (self.root.winfo_screenheight() // 2) - (h // 2)
         self.root.geometry(f"+{x}+{y}")
 
+        home = os.path.expanduser("~")
+        desktop_dir = os.path.join(home, "Escritorio")
+        if not os.path.exists(desktop_dir):
+            desktop_dir = os.path.join(home, "Desktop")
+        self.shared_dir = os.path.join(desktop_dir, "seed-tools-txt")
+        os.makedirs(self.shared_dir, exist_ok=True)
+
         self.selected_file: str = ""
         self._build_ui()
 
@@ -398,6 +405,7 @@ class EVMAddressGeneratorApp:
     def _select_file(self):
         f = filedialog.askopenfilename(
             title="Seleccionar archivo de seed phrases",
+            initialdir=self.shared_dir,
             filetypes=[("Archivos de texto", "*.txt"), ("Todos", "*.*")],
         )
         if f:
@@ -443,7 +451,7 @@ class EVMAddressGeneratorApp:
         num_addresses = int(qty_str)
 
         # Ruta de salida
-        output_dir = str(Path(__file__).resolve().parent)
+        output_dir = self.shared_dir
         output_path = os.path.join(output_dir, "direcctions.txt")
 
         self._log("🔗 EVM Address Generator")
