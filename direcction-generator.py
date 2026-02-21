@@ -1,3 +1,5 @@
+import sys
+print("STARTING SCRIPT", file=sys.stderr)
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
@@ -86,8 +88,12 @@ def process_phrases_file(
     log("")
 
     # Ruta al binario compilado CUDA
-    script_dir = os.path.dirname(os.path.abspath(__file__))
-    exe_path = os.path.join(script_dir, "direcction-generator")
+    if getattr(sys, 'frozen', False):
+        script_dir = sys._MEIPASS
+    else:
+        script_dir = os.path.dirname(os.path.abspath(__file__))
+        
+    exe_path = os.path.join(script_dir, "direcction-generator-bin")
     
     if not os.path.exists(exe_path):
         log(f"❌ Error: No se encontró el binario compilado '{exe_path}'.")
