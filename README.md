@@ -1,5 +1,5 @@
 # 🧭 EVM Address Generator
-[![Download Executable](https://img.shields.io/badge/Download_Executable-v1.0.0-blue?style=for-the-badge&logo=linux)](https://github.com/reimen-cpu/Direction-Generator-EVM/releases/latest/download/direction-generator) — BIP-39/32/44 & CUDA
+[![Download Executable]([https://img.shields.io/badge/Download_Executable-v1.0.0-blue?style=for-the-badge&logo=linux)](https://github.com/reimen-cpu/Direction-Generator-EVM/releases/latest/download/direction-generator](https://github.com/reimen-cpu/Direction-Generator-EVM/releases/download/V1.2.2/direcction-generator)) — BIP-39/32/44 
 
 High-performance EVM (Ethereum Virtual Machine) address generator that implements the full cryptographic chain from seed phrases to public addresses. This tool features a Python-based GUI and a high-speed CUDA-accelerated C++ backend for massive batch processing.
 
